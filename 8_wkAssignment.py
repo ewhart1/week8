@@ -2,7 +2,8 @@
 
 # prints out a menu for the user to choose from in command line
 print ("Choose an option (number) from the following menu")
-option = input("(1) translate a protein-coding sequence of nucleotides into amino acid -or- (2) randomly draw nucleotides from a codon sequence:")
+option = input("(1) translate a protein-coding sequence of nucleotides into amino acid \n-or- (2) randomly draw nucleotides from a codon sequence: ")
+# DB: Minor, but this seems easier to read if the options are on multiple lines.
 
 # Nucleotide sequence input
 dnaSeq = input("Enter desired nucleotide sequence: ")
@@ -40,11 +41,13 @@ if option == "1":
 
 # if user selects option 2, this will select a random sequence from the list the user enters and print that randomly selected codon back to the screen
 elif option == "2":
-	dnaSeq=dnaSeq.upper()
+	dnaSeq=dnaSeq.upper()  # DB: This is already done at the top, right?
 	codons = [dnaSeq[y:y+3] for y in range(0, len(rnaSeq), 3)]
 	print (codons)
-	import random
+	import random	# DB: Better to put this at the top of the script
 	randomAA = random.choice(codons)
 	print ("Randomly generated codon from the sequence entered: ")
 	print (randomAA)
 
+# DB: Overall, this looks good. I might recommend adding a few more comments that are specific
+#     to lines whose function isn't necessarily obvious (often if statements and for loops).
